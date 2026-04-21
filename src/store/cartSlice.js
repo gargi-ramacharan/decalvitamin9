@@ -32,16 +32,15 @@ const cartSlice = createSlice({
       }
     },
     updateQuantity: (state, action) => {
-      const { id, quantity } = action.payload;
-      const existingItem = state.items.find((item) => item.id === id);
+      const existingItem = state.items.find((item) => item.id === action.payload.id);
       
       if (existingItem) {
-        const difference = quantity - existingItem.quantity;
+        const difference = action.payload.quantity - existingItem.quantity;
         state.totalQuantity += difference;
-        existingItem.quantity = quantity;
+        existingItem.quantity = action.payload.quantity;
 
         if (existingItem.quantity <= 0) {
-          state.items = state.items.filter((item) => item.id !== id);
+          state.items = state.items.filter((item) => item.id !== action.payload.id);
         }
       }
     },
