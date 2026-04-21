@@ -1,22 +1,25 @@
 import React from 'react';
-import TaskForm from './components/TaskForm';
-import TaskList from './components/TaskList';
+import ProductList from './components/ProductList';
+import Cart from './components/Cart';
 
 function App() {
   return (
-    <div className="container mt-5">
-      <div className="row justify-content-center">
-        <div className="col-md-6">
-          <h1 className="text-center mb-4">Redux To-Do List</h1>
-          
-          <div className="card shadow-sm">
-            <div className="card-body">
-              <TaskForm />
-              <hr />
-              <TaskList />
-            </div>
+    <div>
+      <nav className="navbar navbar-dark bg-dark mb-4">
+        <div className="container-fluid">
+          <span className="navbar-brand mb-0 h1">Redux Shopping Cart</span>
+        </div>
+      </nav>
+
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-8">
+            <ProductList />
           </div>
           
+          <div className="col-md-4">
+            <Cart />
+          </div>
         </div>
       </div>
     </div>
